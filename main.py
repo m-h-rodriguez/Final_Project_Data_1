@@ -55,6 +55,8 @@ banner("Employee Information")
 #####
 
 
+# Function that filters the data by the selected 'year' and groups by Department to provide Employee Count and salary min, max, mean and sum.
+
 def agg_salary(year):
     filterYear = salary_data_df["CalYear"].isin([year])
     dataByYear = salary_data_df[filterYear]
@@ -63,9 +65,13 @@ def agg_salary(year):
 
     return print(salay_calc)
 
+# Insert the year that you would like to see count, min, max, mean and sum for:
+
 
 agg_salary(2018)
 
+
+# Function that allows you to select the year and return the employee that made the highest salary
 
 def max_salary(year):
     filterYear = salary_data_df["CalYear"].isin([year])
@@ -80,10 +86,14 @@ def max_salary(year):
     dataByYearTop = dataByYearAsc[:1]
     return dataByYearTop
 
+# Insert the year below to print out the highest paid employee:
+
 
 print('The highest paid employee of the selected year is: \n',
       max_salary(2016))
 
+
+# Function that allows you to select the year and return the employee that made the lowest salary
 
 def min_salary(year):
     filterYear = salary_data_df["CalYear"].isin([year])
@@ -99,14 +109,34 @@ def min_salary(year):
     return dataByYearBotton
 
 
+# Insert the year below to print out the lowest paid employee:
+
 print('The lowest paid employee of the selected year is: \n',
       min_salary(2019))
 
+
+# Using NLargest to see employees that were provided the highest Incentive_Allowance with no filtered year
 
 salary_top_allow = salary_data_df.nlargest(5, 'Incentive_Allowance')
 print("Five positions and employees who were given the highest incentive allowance over the last 6 years: ",
       salary_top_allow, sep='\n')
 
+# Using NSmallest to see employees that were provided the lowest Incentive_Allowance with no filtered year
+
 salary_bottom_allow = salary_data_df.nsmallest(5, 'Incentive_Allowance')
 print("Five positions and employees who were given the lowest incentive allowance over the last 6 years: ",
       salary_bottom_allow, sep='\n')
+
+
+# Filtering the data set to view all Tech Employees for the Metro area in the selected year
+
+def tech_emp(year):
+    filterYear = salary_data_df["CalYear"].isin([year])
+    tech_filter = salary_data_df[filterYear].loc[salary_data_df['Department']
+                                                 == 'Technology Services']
+    return tech_filter
+
+# print of the tech employee function to print out the top 5 paid employees for the selected year
+
+
+print(tech_emp(2022).nlargest(5, "Annual_Rate"))
