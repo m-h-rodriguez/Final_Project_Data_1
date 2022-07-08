@@ -34,3 +34,79 @@ salary_data_df.dropna(subset=['Employee_Name'], inplace=True)
 
 salary_data_df['Annual_Rate'] = salary_data_df['Annual_Rate'].astype(
     np.int64)
+
+
+# Data Analysis
+
+# print the data types of each column in the data set
+#####
+banner("Information About the Data Set")
+#####
+print(salary_data_df.dtypes)
+
+
+# display all available Departments in the data set and print them on new lines
+dept = list(salary_data_df['Department'].unique())
+print('These are the departments listed for the metro salary analysis: ', *dept, sep='\n')
+
+
+#####
+banner("Employee Information")
+#####
+
+
+def agg_salary(year):
+    filterYear = salary_data_df["CalYear"].isin([year])
+    dataByYear = salary_data_df[filterYear]
+    salay_calc = dataByYear.groupby(
+        dataByYear['Department']).Annual_Rate.agg(['count', 'min', 'max', 'mean', 'sum']).rename(columns={'count': 'Employee_Count', 'min': 'Lowest_Salary', 'max': 'Highest_Salary', 'mean': 'Average_Salary', 'sum': 'Department_Total'})
+
+    return print(salay_calc)
+
+
+agg_salary(2018)
+
+
+def max_salary(year):
+    filterYear = salary_data_df["CalYear"].isin([year])
+    filterRateMax = salary_data_df["Annual_Rate"].max()
+    dataByYearAsc = salary_data_df[filterYear]
+
+    dataByYearAsc.sort_values(["Annual_Rate"],
+                              axis=0,
+                              ascending=[False],
+                              inplace=True)
+
+    dataByYearTop = dataByYearAsc[:1]
+    return dataByYearTop
+
+
+print('The highest paid employee of the selected year is: \n',
+      max_salary(2016))
+
+
+def min_salary(year):
+    filterYear = salary_data_df["CalYear"].isin([year])
+    filterRateMax = salary_data_df["Annual_Rate"].min()
+    dataByYearDesc = salary_data_df[filterYear]
+
+    dataByYearDesc.sort_values(["Annual_Rate"],
+                               axis=0,
+                               ascending=[True],
+                               inplace=True)
+
+    dataByYearBotton = dataByYearDesc[:1]
+    return dataByYearBotton
+
+
+print('The lowest paid employee of the selected year is: \n',
+      min_salary(2019))
+
+
+salary_top_allow = salary_data_df.nlargest(5, 'Incentive_Allowance')
+print("Five positions and employees who were given the highest incentive allowance over the last 6 years: ",
+      salary_top_allow, sep='\n')
+
+salary_bottom_allow = salary_data_df.nsmallest(5, 'Incentive_Allowance')
+print("Five positions and employees who were given the lowest incentive allowance over the last 6 years: ",
+      salary_bottom_allow, sep='\n')
