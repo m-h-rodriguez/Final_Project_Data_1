@@ -1,2 +1,5 @@
-This is my code along project with Salary Data pulled from https://data.louisvilleky.gov/dataset/employee-salary-data
-This is to analyze highest goverment paying positions and departments in the Metro Area. 
+This is my final project for the Code Louisville Data 1 course.  
+This project is using SalaryData.xlsx pulled from https://data.louisvilleky.gov/dataset/employee-salary-data
+
+This data set contains the salary information for Metro Louisville employees from 2016 to present. 
+
