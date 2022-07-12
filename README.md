@@ -10,7 +10,7 @@ This project reads in the data set in excel format and drops the YTD_Total colum
 The data clean up that is performed drops any rows where the name field is null. 
 The Annual_Rate field is converted to datatype int to allow it to be used with no converting issues later on in the project. 
 
-Under the banner "Information About the Data Set" = the data types are printed for review and a list of unique departments is printed for review. 
+Under the banner "Information About the Data Set" the data types are printed for review and a list of unique departments is printed for review. 
 
 Recognizing that there is some repetitive coding, a user should be able to select different years for each function for review. 
 The function for agg_salary computes for a selected year the following: 
