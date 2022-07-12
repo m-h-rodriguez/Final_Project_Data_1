@@ -2,7 +2,6 @@ import pandas as pd
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib as mticker
 
 # filtered values used to extract the max and min salary are setting a value on a copy of a slice from the dataframe.
 # To ignore this warning as a means of only pulling the values, the chained mode assignment sets this to none for it to ignore the warning
