@@ -21,10 +21,8 @@ def banner(message, banner="-"):
 # https://data.louisvilleky.gov/dataset/employee-salary-data
 
 
-path = "/Users/miche/OneDrive/Desktop/Code Louisville/Final Project/Final_Project_Data_1/"
-
 salary_data_df = pd.read_excel(os.path.join(
-    path, 'Data_Source', 'SalaryData.xlsx'), usecols='A:I')
+    'Data_Source', 'SalaryData.xlsx'), usecols='A:I')
 
 # Data Clean-up where we remove rows where names are missing/blank
 
