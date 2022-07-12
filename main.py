@@ -1,6 +1,8 @@
 import pandas as pd
 import os
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mticker
 
 # filtered values used to extract the max and min salary are setting a value on a copy of a slice from the dataframe.
 # To ignore this warning as a means of only pulling the values, the chained mode assignment sets this to none for it to ignore the warning
@@ -140,3 +142,23 @@ def tech_emp(year):
 
 
 print(tech_emp(2022).nlargest(5, "Annual_Rate"))
+
+
+#####
+banner("MatplotLib Information")
+#####
+
+tech_salary_df = salary_data_df[salary_data_df['Department']
+                                == 'Technology Services']
+average_tech_salary = tech_salary_df.groupby('CalYear')['Annual_Rate'].mean()
+year = sorted(tech_salary_df['CalYear'].unique())
+
+plt.plot(year, average_tech_salary, color='green', linewidth=2)
+plt.xlabel('Year')
+plt.ylabel('Average Salary')
+
+plt.gca().set_yticklabels(['${:,.0f}'.format(x)
+                           for x in plt.gca().get_yticks()])
+
+plt.title('Average Salary for Technology Services Employees')
+plt.show()
