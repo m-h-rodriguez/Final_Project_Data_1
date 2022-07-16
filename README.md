@@ -11,9 +11,8 @@ The REQUIREMENTS.TXT contains the necessary modules that need to be installed.  
 This project reads in the data set in excel format and drops the YTD_Total column from analysis as it is not needed or provides any value to the review being completed. 
 
 ### Project requirement 2: 
-
-The data clean up that is performed drops any rows where the name field is null. 
-The Annual_Rate field is converted to datatype int to allow it to be used with no converting issues later on in the project. 
+* The data clean up that is performed drops any rows where the name field is null. 
+* The Annual_Rate field is converted to datatype int to allow it to be used with no converting issues later on in the project. 
 
 ### Project requirement 3: 
 Under the banner "Information About the Data Set" the data types are printed for review and a list of unique departments is printed for review. 
