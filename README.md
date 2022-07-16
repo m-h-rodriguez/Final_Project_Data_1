@@ -24,7 +24,6 @@ This project reads in the data set in excel format and drops the YTD_Total colum
     * mean value for annual salary
     * sum value for the department of annual salary paid to employees
 
-
 * Function for max_salary allows a user to select a year and see the highest paid employee that year which includes: name, department, job title, annual rate, incentive_allowances, and overtime pay
 
 * Function for min_salary allows a user to select a year and see the lowest paid employee that year which will include the same information from the data set provided in max_salary
