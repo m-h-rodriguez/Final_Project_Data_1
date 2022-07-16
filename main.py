@@ -67,7 +67,7 @@ def agg_salary(year):
 # Insert the year that you would like to see count, min, max, mean and sum for:
 
 
-agg_salary(2018)
+agg_salary(2022)
 
 
 # Function that allows you to select the year and return the employee that made the highest salary
@@ -89,7 +89,7 @@ def max_salary(year):
 
 
 print('The highest paid employee of the selected year is: \n',
-      max_salary(2016))
+      max_salary(2017))
 
 
 # Function that allows you to select the year and return the employee that made the lowest salary
