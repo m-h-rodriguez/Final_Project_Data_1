@@ -74,7 +74,6 @@ agg_salary(2022)
 
 def max_salary(year):
     filterYear = salary_data_df["CalYear"].isin([year])
-    filterRateMax = salary_data_df["Annual_Rate"].max()
     dataByYearAsc = salary_data_df[filterYear]
 
     dataByYearAsc.sort_values(["Annual_Rate"],
@@ -96,7 +95,6 @@ print('The highest paid employee of the selected year is: \n',
 
 def min_salary(year):
     filterYear = salary_data_df["CalYear"].isin([year])
-    filterRateMax = salary_data_df["Annual_Rate"].min()
     dataByYearDesc = salary_data_df[filterYear]
 
     dataByYearDesc.sort_values(["Annual_Rate"],
