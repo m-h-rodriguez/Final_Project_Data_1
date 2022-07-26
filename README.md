@@ -5,7 +5,7 @@ This project is using SalaryData.xlsx pulled from https://data.louisvilleky.gov/
 
 This data set contains the salary information for Metro Louisville employees from 2016 to present. 
 
-The requirements.txt contains the necessary modules that need to be installed.  Navigating to the command prompt, 'pip install -requirements.txt" for each module in the list to ensure the program will sucessfully execute.  
+The requirements.txt contains the necessary modules that need to be installed.  Navigating to the command prompt, 'pip install -r requirements.txt" for each module in the list to ensure the program will sucessfully execute.  
 The program is executed from the terminal on main.py. 
 
 ### Project requirement 1:
