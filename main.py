@@ -157,3 +157,23 @@ plt.gca().set_yticklabels(['${:,.0f}'.format(x)
 
 plt.title('Average Salary for Technology Services Employees')
 plt.show()
+
+
+filter_tech_year = tech_salary_df["CalYear"].isin([2022])
+tech_data = tech_salary_df[filter_tech_year]
+average_tech_salary = tech_data.groupby('jobTitle')[
+    'Annual_Rate'].mean()
+dept = sorted(tech_data['jobTitle'].unique())
+print(dept)
+
+fig = plt.figure(figsize=(20, 15))
+plt.bar(dept, average_tech_salary, color='maroon', width=.4)
+plt.xticks(rotation='vertical')
+plt.xlabel('Department')
+plt.ylabel('Average Salary')
+
+plt.gca().set_yticklabels(['${:,.0f}'.format(x)
+                           for x in plt.gca().get_yticks()])
+
+plt.title('Average 2022 Salary by Technology Job Title')
+plt.show()
